@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script defer src="./script.js"></script>
+    <link href="/styles.css" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tom's entirely excessive fantasy picker</h1>
+    <div>
+        <button id="unhide">Unhide</button>
+        <button id="reset">Reset</button>
+        <select name="positions" id="positionFilter" >
+            <option value="ALL" default>ALL</option>
+            <option value="RB">RB</option>
+            <option value="WR">WR</option>
+            <option value="TE">TE</option>
+            <option value="QB">QB</option>
+            <option value="K">K</option>
+            <option value="DST">D/ST</option>
+            
+        </select>
+        <!-- <button></button> -->
+    </div>
+    <table>
+        <thead>
+            <th></th>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Team</th>
+            
+            <th>Cost</th>
+            <th>Bye</th>
+        </thead>
+        <tbody>
+            <% list.forEach((player, index) => { %>
+                <tr class="<%= player.position %> player unfiltered">
+                    <td><%= index + 1 %></td>
+                    <td><%= player.totalRank %> (<%= player.rankArr.length %>)</td>
+                    <td><%= player.name %></td>
+                    <td><%= player.position %></td>
+                    <td><%= player.team %></td>
+                    
+                    <td>$<%= player.costArr?.length > 0?Math.floor(player.costArr.reduce((partialSum, a) => partialSum + a, 0) / player.costArr.length):0 %></td>
+                    <td><%= player.byeWeek %></td>
+                    <td><button class="hide">HIDE</button></td>
+                    <td><button class="pick">PICK</button></td>
+                </tr>
+            <%}) %>
+        </tbody>
+
+    </table>
+</body>
+</html>

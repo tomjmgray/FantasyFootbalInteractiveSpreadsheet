@@ -1,0 +1,24 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Thin', sans-serif;
+    font-family: 'Roboto Light', sans-serif;
+    font-family: 'Roboto Medium', sans-serif;
+    font-family: 'Roboto Black', sans-serif;
+}
+
+td {
+    border: 2px solid black !important;
+    padding: 3px;
+}
+
+.filtered, .otherPick {
+    display: none
+}
+
+.picked {
+    color: green;
+}
+
+.hidden {
+    display: none !important;
+}
